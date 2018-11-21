@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+
+  <title>Forgrant page</title>
+	<meta name="description" content="">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+	<link rel="icon" href="img/favicon/favicon.ico">
+	<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon-180x180.png">
+	
+	<!-- Custom Browsers Color Start -->
+	<meta name="theme-color" content="#1c232b">
+	<!-- Custom Browsers Color End -->
+
+	<link rel="stylesheet" href="css/main.min.css">
+
+</head>
+
+<body>
+
+	<div class="body__wrapper">
+
+		<header>
+			<div class="container">
+				
+				<div class="topline__wrapper">
+
+					<div class="row no-gutters align-items-center">
+
+						<div class="col-sm-2 col-xs-3">
+							<h1>Select currency to exhange:</h1>
+						</div>
+	
+						<div class="col-1 offset-sm-0 offset-1">
+							<div class="dropdown">
+								<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									USD
+								</button>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+									<button class="dropdown-item" onclick="currencyChanged('USD')">USD</a>
+									<button class="dropdown-item" onclick="currencyChanged('EUR')">EUR</a>
+									<button class="dropdown-item" onclick="currencyChanged('RUB')">RUB</a>
+									<button class="dropdown-item" onclick="currencyChanged('GBP')">GBP</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</header>
+		<section class="content">
+
+			<div class="container">
+
+				<div class="row">
+
+					<div class="col-md-1 col-3">
+						<div class="box box--eth" style="background-image: url(img/etherium.jpg)">
+              <h3>Ethereum</h3>
+              <table>
+								<col><col>
+								<tr>
+									<th>Price:</th>
+									<th class="amount">$22 526.92</th>
+                </tr>
+                
+                <tr>
+                  <td class="switch-title">
+                    <span class="white">Percent change</span>
+                  </td>
+                  <td class="switcher">
+                    <label>
+                      <input name="btcpercentage" class="checkbox" type="checkbox" checked>
+                      <span></span>
+                    </label>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="name">Hour change</span>
+                  </td>
+                  <td>
+                    <span class="value">+266%</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="name">Day change</span>
+                  </td>
+                  <td>
+                    <span class="value value--minus">-266%</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="name">Week change</span>
+                  </td>
+                  <td>
+                    <span class="value">+266%</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="name">Month change</span>
+                  </td>
+                  <td>
+                    <span class="value">+266%</span>
+                  </td>
+                </tr>
+
+							</table>
+						</div>
+					</div>
+					<div class="col-md-1 col-3">
+						<div class="box box--ltc" style="background-image: url(img/litecoin.jpg)">
+              <h3>Litecoin</h3>
+              <table>
+								<col><col>
+								<tr>
+									<th>Price:</th>
+									<th class="amount">$22 526.92</th>
+                </tr>
+                
+                <tr>
+                  <td class="switch-title">
+                    <span class="white">Percent change</span>
+                  </td>
+                  <td class="switcher">
+                    <label>
+                      <input name="btcpercentage" class="checkbox" type="checkbox" checked>
+                      <span></span>
+                    </label>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="name">Hour change</span>
+                  </td>
+                  <td>
+                    <span class="value">+266%</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="name">Day change</span>
+                  </td>
+                  <td>
+                    <span class="value value--minus">-266%</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="name">Week change</span>
+                  </td>
+                  <td>
+                    <span class="value">+266%</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="name">Month change</span>
+                  </td>
+                  <td>
+                    <span class="value">+266%</span>
+                  </td>
+                </tr>
+
+							</table>
+						</div>
+					</div>
+					<div class="col-md-1 col-3">
+						<div class="box box--btc" style="background-image: url(img/bitcoin.jpg)">
+							<h3>Bitcoin</h3>
+							<table>
+								<col><col>
+								<tr>
+									<th>Price:</th>
+									<th class="amount">{{ btcData.ask | tousd }}</th>
+                </tr>
+                
+                <tr>
+                  <td class="switch-title">
+                    <span class="white">Percent change</span>
+                  </td>
+                  <td class="switcher">
+                    <label>
+                      <input name="btcpercentage" class="checkbox" type="checkbox" value="0" v-model="percents">
+                      <span></span>
+                    </label>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="name">Hour change</span>
+                  </td>
+                  <td v-if='percents'>
+                    <span class="value" v-bind:class="[{ 'value--minus': isNegative(btcDataChangesPercent.hour) }]"> 
+                      {{ btcDataChangesPercent.hour | roundpercents }} </span>
+                  </td>
+                  <td v-else>
+                    <span class="value" v-bind:class="[{ 'value--minus': isNegative(btcDataChangesPrice.hour) }]"> 
+                      {{ btcDataChangesPrice.hour | roundusd }} </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="name">Day change</span>
+                  </td>
+                  <td v-if='percents'>
+                    <span class="value" v-bind:class="[{ 'value--minus': isNegative(btcDataChangesPercent.day) }]">
+                      {{ btcDataChangesPercent.day | roundpercents }}
+                    </span>
+                  </td>
+                  <td v-else>
+                    <span class="value" v-bind:class="[{ 'value--minus': isNegative(btcDataChangesPrice.day) }]">
+                      {{ btcDataChangesPrice.day | roundusd }}
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="name">Week change</span>
+                  </td>
+                  <td v-if='percents'>
+                    <span class="value" v-bind:class="[{ 'value--minus': isNegative(btcDataChangesPercent.week) }]">
+                      {{ btcDataChangesPercent.week | roundpercents }}
+                    </span>
+                  </td>
+                  <td v-else>
+                    <span class="value" v-bind:class="[{ 'value--minus': isNegative(btcDataChangesPrice.week) }]">
+                      {{ btcDataChangesPrice.week | roundusd }}
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="name">Month change</span>
+                  </td>
+                  <td v-if='percents'>
+                    <span class="value" v-bind:class="[{ 'value--minus': isNegative(btcDataChangesPercent.month) }]">
+                      {{ btcDataChangesPercent.month | roundpercents }}
+                    </span>
+                  </td>
+                  <td v-else>
+                    <span class="value" v-bind:class="[{ 'value--minus': isNegative(btcDataChangesPrice.month) }]">
+                      {{ btcDataChangesPrice.month | roundusd }}
+                    </span>
+                  </td>
+                </tr>
+
+							</table>
+						</div>
+					</div>
+					
+				</div>
+
+			</div>
+
+    </section>
+
+	</div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="js/scripts.min.js"></script>
+</body>
+</html>

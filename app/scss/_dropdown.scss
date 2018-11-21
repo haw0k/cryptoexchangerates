@@ -1,0 +1,59 @@
+.btn.btn-secondary.dropdown-toggle {
+  width: 295px;
+  text-align-last: left;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.btn-secondary {
+  font-family: "roboto-light", sans-serif;
+  color: gray;
+  background-color: rgba(252, 252, 252, .05);
+  border-color: gray;
+  &:hover, &:active, &:focus {
+    color: white;
+    background-color: rgba(252, 252, 252, .01);
+    border-color: $accent;
+  }
+}
+.btn-secondary:not(:disabled):not(.disabled):active:focus, 
+.btn-secondary:not(:disabled):not(.disabled).active:focus, 
+.show > .btn-secondary.dropdown-toggle:focus {
+  box-shadow: none;
+}
+.btn-secondary:not(:disabled):not(.disabled):active, 
+.btn-secondary:not(:disabled):not(.disabled).active, 
+.show > .btn-secondary.dropdown-toggle {
+  background-color: #20282f;
+  border-color: $accent;
+}
+.btn-secondary:focus, .btn-secondary.focus {
+  box-shadow: none;
+}
+
+.dropdown-toggle {
+  position: relative;
+  &::after {
+    content: '\f107';
+    font-family: font-awesome;
+    border: none;
+    position: absolute;
+    right: 10+13px;
+    color: grey;
+  }
+  &:hover, &:active, &:focus {
+    &::after {
+    color: $accent;
+    }
+  }
+}
+.dropdown-menu {
+  width: 295px;
+  margin-top: 9px;
+  background-color: #1e252b;
+  border-color: $accent;
+  font-family: "roboto-light", sans-serif;
+}
+.dropdown-item {
+  padding-left: 12px;
+  color: white;
+}
