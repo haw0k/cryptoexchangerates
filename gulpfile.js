@@ -1,13 +1,12 @@
 var syntax        = 'scss';
 
 var gulp          = require('gulp'),
-		gutil         = require('gulp-util' ),
+		// gutil         = require('gulp-util' ),
     sass          = require('gulp-sass'),
     sourcemaps    = require('gulp-sourcemaps'),
 		browserSync   = require('browser-sync'),
 		concat        = require('gulp-concat'),
-		uglify        = require('gulp-uglify'),
-		cleancss      = require('gulp-clean-css'),
+		cleanCSS      = require('gulp-clean-css'),
 		rename        = require('gulp-rename'),
 		autoprefixer  = require('gulp-autoprefixer'),
 		notify        = require("gulp-notify");
@@ -33,7 +32,7 @@ gulp.task('styles', function() {
       browsers: ['last 2 versions'],
       grid: false
     }))
-    // .pipe(cleanCSS()) // Опционально, закомментировать при отладке
+    .pipe(cleanCSS()) // Опционально, закомментировать при отладке
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('app/css'))
     .pipe(browserSync.reload({ stream: true }));
@@ -42,13 +41,11 @@ gulp.task('styles', function() {
 gulp.task('js', function() {
 	return gulp.src([
     'app/libs/jquery/dist/jquery.min.js',
-    'app/libs/bootstrap/dist/bootstrap.bundle.js',
-    // 'app/libs/bootstrap/dist/bootstrap.bundle.js.map',
+    'app/libs/bootstrap/dist/bootstrap.bundle.min.js',
 		'app/js/common.js', // Always at the end
     ])
     // .pipe(sourcemaps.write())
 	.pipe(concat('scripts.min.js'))
-	// .pipe(uglify()) // Mifify js (opt.)
 	.pipe(gulp.dest('app/js'))
 	.pipe(browserSync.reload({ stream: true }))
 });
