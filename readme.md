@@ -1,4 +1,4 @@
-<h1>Forgrant front-end developer vacancy challenge</h1>
+<h1>Crypto currency exchange rates Vue.js SPA</h1>
 
 <h2>How to use this repository</h2>
 

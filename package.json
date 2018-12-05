@@ -1,12 +1,12 @@
 {
-  "name": "forgrant",
+  "name": "crypto-vue",
   "version": "1.0.0",
-  "description": "Forgrant front-end developer vacancy challenge",
+  "description": "Crypto currency exchange rates Vue.js SPA",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "CZ",
+  "author": "Cyril Zlachevsky <cyril.zlachevsky@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.26.3",
